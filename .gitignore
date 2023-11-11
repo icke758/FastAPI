@@ -1,0 +1,29 @@
+# Byte-compiled / compiled python files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# Arquivos de configuração locais
+*.env
+*.log
+
+# Arquivos gerados durante a execução do código
+*.pyc
+*.pyo
+*.pyd
+
+# Arquivos gerados pelos IDEs e editores de texto
+.vscode/
+.idea/
+
+# Arquivos de saída ou build
+dist/
+build/
+*.egg-info/
+*.egg
