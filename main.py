@@ -1,6 +1,8 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from typing import Optional
 from pydantic import BaseModel
+from unidecode import unidecode  
 import math
 
 class Person(BaseModel) :
@@ -19,11 +21,25 @@ class Phrases(BaseModel) :
 
 app = FastAPI()
 
+origins = [
+    "http://localhost:3000"
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 @app.get("/")
 def index():
     return {
         "squares" : "/squares",
-        "multiplication_tables" : "/multiplication_tables"
+        "multiplication_tables" : "/multiplication_tables",
+        "quadratic_formula" : "/quadratic_formula",
+        "character_counter" : "/character_counter"
         }
 
 @app.get("/squares")
@@ -63,9 +79,9 @@ def quadratic_formula(coeficient: Coeficients):
 
 @app.post("/character_counter")
 def character_counter(phrases : Phrases):
-    vogals_count = sum(1 for character in phrases.phrase.upper() if character in ["A", "E", "I", "O", "U"])
-    character_count = sum(1 for character in phrases.phrase.upper())
-    space_count = sum(1 for character in phrases.phrase.upper() if character is " ")
+    vogals_count = sum(1 for character in unidecode(phrases.phrase.upper()) if character in ["A", "E", "I", "O", "U"])
+    character_count = sum(1 for character in unidecode(phrases.phrase.upper()))
+    space_count = sum(1 for character in unidecode(phrases.phrase.upper()) if character == " ")
 
     return {
         "vogals_count" : vogals_count,
