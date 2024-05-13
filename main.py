@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: utf8 -*-
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from typing import Optional
@@ -21,8 +24,10 @@ class Phrases(BaseModel) :
 
 app = FastAPI()
 
+
 origins = [
     "http://localhost:3000"
+    "http://127.0.0.1:8000"
 ]
 
 app.add_middleware(
