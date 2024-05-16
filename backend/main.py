@@ -4,26 +4,13 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from typing import Optional
-from pydantic import BaseModel
 from unidecode import unidecode  
 import math
-
-class Person(BaseModel) :
-    first_name : str
-    last_name : str
-    age : int
-
-class Coeficients(BaseModel) :
-    a : float
-    b : float
-    c : float
-
-class Phrases(BaseModel) :
-    phrase : str
-
+from .models.person import Person
+from .models.coeficients import Coeficients
+from .models.phrases import Phrases
 
 app = FastAPI()
-
 
 origins = [
     "http://localhost:3000"
