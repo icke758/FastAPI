@@ -3,6 +3,7 @@
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from typing import Optional
 from unidecode import unidecode  
 import math
@@ -15,11 +16,13 @@ app = FastAPI()
 origins = [
     "http://localhost:3000"
     "http://127.0.0.1:8000"
+    "http://127.0.0.1:5500"
+    "http://0.0.0.0:8080"
 ]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"],  # Permitir todas as origens
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
