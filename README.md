@@ -1,4 +1,4 @@
-# FastAPI
+# BackEnd
 ## Objective:
 This project had the objective to create and learn about how FastAPI work. Since, I wanted to use as little extern tools as possible.
 
