@@ -8,6 +8,7 @@ function getFileExtension() {
 
 export const router = (value) => {
     const ROOT = window.location.origin + window.location.pathname.replace(/\/[^/]*$/, "");
+    console.log(ROOT)
     const FILE_EXTENSION = getFileExtension();
-    return ROOT + value + FILE_EXTENSION;
+    return ROOT + value + value + FILE_EXTENSION;
 }

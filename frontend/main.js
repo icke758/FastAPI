@@ -1,5 +1,6 @@
 import { router } from "./js/router.js"
 import { translateKey } from "./js/utils.js"
+import { createHeader } from "./js/header.js";
 
 async function getRoutes() {
     const url = "http://localhost:8080/";
@@ -31,6 +32,10 @@ async function displayRoutes() {
         showRoutes.innerText = 'Falha ao carregar rotas';
     }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    createHeader();
+});
 
 displayRoutes();
 
