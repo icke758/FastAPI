@@ -1,6 +1,7 @@
 import { router } from "./js/router.js"
 import { translateKey } from "./js/utils.js"
 import { createHeader } from "./js/header.js";
+import { request } from "./js/requester.js";
 
 async function getRoutes() {
     const url = "http://localhost:8080/";
