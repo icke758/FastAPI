@@ -1,5 +1,4 @@
 import { createHeader } from "../js/header.js";
-import { request } from "../js/requester.js";
 
 document.addEventListener('DOMContentLoaded', () => {
     createHeader();
